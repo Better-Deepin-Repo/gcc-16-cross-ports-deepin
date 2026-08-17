@@ -3,9 +3,8 @@
 @@ -610,7 +610,7 @@ ppc64el_ibm128_distreleases = jessie str
  # allows to write backtraces for ICEs
  #unstripped_exe = yes
--ifneq (,$(filter $(DEB_TARGET_ARCH), alpha amd64 armhf arm64 i386 loong64 ppc64el riscv64 s390x sparc64))
+ ifneq (,$(filter $(DEB_TARGET_ARCH), alpha amd64 armhf arm64 i386 loong64 ppc64el riscv64 s390x sparc64))
 -  unstripped_exe = yes
-+ifneq (,$(filter $(DEB_TARGET_ARCH), amd64 armhf arm64 i386 loong64 ppc64el riscv64 s390x sparc64))
 +#  unstripped_exe = yes
  endif
  

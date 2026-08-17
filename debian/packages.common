@@ -215,6 +215,7 @@ libasan8-riscv64-cross
 libasan8-s390x-cross
 libasan8-sparc64-cross
 libasan8-x32-cross
+libatomic1-alpha-cross
 libatomic1-amd64-cross
 libatomic1-arc-cross
 libatomic1-arm64-cross
@@ -253,6 +254,7 @@ libatomic1-s390x-cross
 libatomic1-sh4-cross
 libatomic1-sparc64-cross
 libatomic1-x32-cross
+libgcc-s1-alpha-cross
 libgcc-s1-amd64-cross
 libgcc-s1-arc-cross
 libgcc-s1-arm64-cross
@@ -291,6 +293,7 @@ libgcc-s1-sparc64-cross
 libgcc-s1-x32-cross
 libgcc-s2-m68k-cross
 libgcc-s4-hppa-cross
+libgfortran5-alpha-cross
 libgfortran5-amd64-cross
 libgfortran5-arc-cross
 libgfortran5-arm64-cross
@@ -325,6 +328,7 @@ libgfortran5-s390x-cross
 libgfortran5-sh4-cross
 libgfortran5-sparc64-cross
 libgfortran5-x32-cross
+libgomp1-alpha-cross
 libgomp1-amd64-cross
 libgomp1-arc-cross
 libgomp1-arm64-cross
@@ -365,6 +369,7 @@ libgomp1-sparc64-cross
 libgomp1-x32-cross
 libhwasan0-amd64-cross
 libhwasan0-arm64-cross
+libitm1-alpha-cross
 libitm1-amd64-cross
 libitm1-arm64-cross
 libitm1-dbg-amd64-cross
@@ -446,6 +451,7 @@ libn32stdc++6-mips64r6el-cross
 libn32stdc++6-mipsel-cross
 libn32stdc++6-mipsr6-cross
 libn32stdc++6-mipsr6el-cross
+libobjc4-alpha-cross
 libobjc4-amd64-cross
 libobjc4-arc-cross
 libobjc4-arm64-cross
@@ -490,6 +496,7 @@ libquadmath0-dbg-i386-cross
 libquadmath0-i386-cross
 libquadmath0-ppc64el-cross
 libquadmath0-x32-cross
+libstdc++6-alpha-cross
 libstdc++6-amd64-cross
 libstdc++6-arc-cross
 libstdc++6-arm64-cross

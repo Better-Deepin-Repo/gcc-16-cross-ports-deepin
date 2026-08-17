@@ -15,8 +15,8 @@ distrelease := $(shell lsb_release -cs)
 GCC_VER := $(shell dpkg-parsechangelog |egrep ^Source:|cut -f2 -d' '|cut -f2 -d'-')
 
 ifeq ($(GCC_VER),16)
-  MIN_VER_GCC      := 16-20260425-1~
-  PPA_VER_GCC      := 16-20260425-1~
+  MIN_VER_GCC      := 16.1.0-3~
+  PPA_VER_GCC      := 16.1.0-3~
 endif
 
 ifndef MIN_VER_GCC
@@ -52,6 +52,7 @@ CROSS_BIARCH_armel:=armhf
 CROSS_BIARCH_powerpc:=ppc64
 CROSS_BIARCH_s390x:=s390
 
+HOST_ARCHS_alpha = amd64 arm64 i386 ppc64el x32
 # FIXME: adding amd64 in HOST_ARCHS_amd64 hard codes the indep build
 # to amd64 buildds ...
 HOST_ARCHS_amd64 = amd64 arm64 i386 ppc64el s390x x32
@@ -119,14 +120,14 @@ ifeq (,$(CROSS_ARCHS))
     GCC_PORTS_BUILD=
   else ifeq ($(DEB_NAME_ACT),gcc-16-cross-ports)
     ifneq (,$(filter $(HOST_ARCH),amd64 i386 x32))
-      CROSS_ARCHS  ?= arc armel hppa loong64 m68k ppc64 sh4 sparc64 \
+      CROSS_ARCHS  ?= alpha arc armel hppa loong64 m68k ppc64 sh4 sparc64 \
 		$(if $(filter $(vendor), Ubuntu),, powerpc) \
 		$(if $(filter $(HOST_ARCH), amd64 i386), x32)
     else ifeq ($(HOST_ARCH),arm64)
-      CROSS_ARCHS ?= arc armel hppa loong64 m68k sh4 sparc64 x32 \
+      CROSS_ARCHS ?= alpha arc armel hppa loong64 m68k sh4 sparc64 x32 \
 		$(if $(filter $(vendor), Ubuntu),, powerpc)
     else ifeq ($(HOST_ARCH),ppc64el)
-      CROSS_ARCHS ?= arc armel hppa loong64 m68k sh4 sparc64 x32 \
+      CROSS_ARCHS ?= alpha arc armel hppa loong64 m68k sh4 sparc64 x32 \
 		$(if $(filter $(vendor), Ubuntu),, powerpc) ppc64
     else ifeq ($(HOST_ARCH),s390x)
       CROSS_ARCHS ?= ppc64 \
@@ -177,7 +178,7 @@ libgcc_source := $(shell apt-cache show --no-all-versions libgcc-s1-arm64-cross 
 #endif
 
 BINUTILS_BUILD_DEPS = $(foreach a,$(CROSS_ARCHS),binutils-$(call _pkg_gnu_type,$(a)) (>= $(MIN_VER_BINUTILS)) [$(HOST_ARCHS_$(a))]$(,))
-GLIBC_BUILD_DEPS = $(foreach a,$(CROSS_ARCHS),libc6$(if $(filter $(a),ia64),.1)-dev-$(a)-cross (>= $(MIN_VER_GLIBC)) [$(HOST_ARCHS_$(a))]$(,))
+GLIBC_BUILD_DEPS = $(foreach a,$(CROSS_ARCHS),libc6$(if $(filter $(a),alpha ia64),.1)-dev-$(a)-cross (>= $(MIN_VER_GLIBC)) [$(HOST_ARCHS_$(a))]$(,))
 LINUX_BUILD_DEPS = $(foreach a,$(CROSS_ARCHS),linux-libc-dev-$(a)-cross [$(HOST_ARCHS_$(a))]$(,))
 
 # build multilib cross compilers

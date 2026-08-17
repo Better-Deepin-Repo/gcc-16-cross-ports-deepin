@@ -1,3 +1,16 @@
+gcc-16-cross-ports (11) unstable; urgency=medium
+
+  * Build using gcc-16 16.1.0-3.
+  * Build gm2 cross compilers for powerpc and ppc64.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 21 Jul 2026 21:11:05 +0200
+
+gcc-16-cross-ports (10) unstable; urgency=medium
+
+  * Build using gcc-16 16.1.0-2.
+
+ -- Matthias Klose <doko@debian.org>  Mon, 15 Jun 2026 10:41:52 +0200
+
 gcc-16-cross-ports (9) unstable; urgency=medium
 
   * Build using gcc 16-20260425-1.
